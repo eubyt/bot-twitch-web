@@ -43,6 +43,7 @@ export function createTmi(name, oauth, channels, onActive, onError, dispatch) {
         let isBroadcaster = channel.slice(1) === user.username;
         let isModUp = isMod || isBroadcaster;
 
+        console.log(isModUp)
 
         if (command === data.command && isModUp) {
             let cena = null

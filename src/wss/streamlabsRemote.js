@@ -72,6 +72,7 @@ const onConnectionHandler = (onActive, dispatch) => {
 
 export function setScene(name) {
     const currentScene = scenes.filter(x => x.name.toLowerCase() === name.toLowerCase())[0]
+    console.log("Achou", currentScene)
     if (currentScene != null)
         request('ScenesService', 'makeSceneActive', currentScene.id)
 }
