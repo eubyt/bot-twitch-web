@@ -39,7 +39,12 @@ export function createTmi(name, oauth, channels, onActive, onError, dispatch) {
         let command = `!${params.shift().toLowerCase()}`;
         let msg = message.replace(command, "").trim()
 
-        if (command === data.command) {
+        let isMod = user.mod || user['user-type'] === 'mod';
+        let isBroadcaster = channel.slice(1) === user.username;
+        let isModUp = isMod || isBroadcaster;
+
+
+        if (command === data.command && isModUp) {
             let cena = null
 
             if (params.length < 1)
